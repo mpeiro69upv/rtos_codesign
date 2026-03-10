@@ -22,14 +22,14 @@ title: "Sistemas Operativos en Tiempo Real - UCOSII - IntelFPGA"
 ### [Ejercicio 10: Flags de eventos](ex10.md)
 ### [Ejercicio 11: Partición de Memoria](ex11.md)
 
-## 🙏 Agradecimientos
+## 🙏 Teoría Recomendada
 
 - Universidad Politécnica de Valencia (UPV)
-- Comunidad de desarrolladores RTOS
-- Contribuidores del proyecto
+- Asignatura Sistemas Integrados Digitales. Máster Universitario de Ingeniería de Sistemas Electrónicos (MUISE): [consulta de asignaturas](https://www.upv.es/estudios/master/muise/consulta/asignaturas/)
+- Asignatura Codiseño Hardware - Software. Máster Universitario de Ingeniería de Telecomunicaciones (MUIT): [consulta de asignaturas](https://www.upv.es/estudios/master/muit/consulta/asignaturas/)
 
 ---
 
-**¿Listo para comenzar?** 👨‍💻 Explora la [documentación](docs/) o revisa los [ejemplos](examples/) para empezar a desarrollar con RTOS Codesign.
+**¿Listo para comenzar?** 👨‍💻 Explora la [documentación de teoría](content/slides_book/) para empezar a desarrollar con RTOS Codesign.
 
-> 💡 **Tip**: Para una mejor experiencia, te recomendamos comenzar con los tutoriales básicos y familiarizarte con la arquitectura del sistema antes de desarrollar aplicaciones complejas.
+> 💡 **Tip**: Puedes usar VSC como editor de texto, usa IA como Copilot UPV para ayudar a desarrollar código y controla versiones mediante Git.
