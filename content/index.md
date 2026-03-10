@@ -7,7 +7,7 @@
 **Date:** March 2026  
 **Institution:** Universitat Politècnica de València
 
-## Contents
+## Contenido
 
 ### [Introducción](intro_lab.md)
 ### [Ejercicio 1: Creación de Tareas](ex1.md)
