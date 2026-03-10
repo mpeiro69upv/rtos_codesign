@@ -1,4 +1,3 @@
-
 ## OBJETIVOS
 En esta práctica vamos a abordar los fundamentos de trabajo de un sistema operativo en tiempo real –RTOS.
 Las prácticas se fundamentan en el uso de MicroC/OS-II, también conocido como uCOSII.
@@ -25,10 +24,19 @@ Inicialmente vamos a crear nuestro primer proyecto con uCOSII, denominado LAB_RT
 2. Inicie ECLIPSE desde QuartusII mediante Tools->NIOSII Software Build Tools for Eclipse, el workspace indicado debe ser /DE1_SoC_Media_Computer/software.
 3. Desde ECLIPSE File->New->NiosII Application and BSP from Template. Cargue el fichero .sopcinfo proporcionado en la práctica.
 
-![Figura 1. Creación de Proyecto Software desde Eclipse.](img/Imagen1.jpg)
+<div align="center">
+  <img src="img/Imagen1.jpg" alt="Creación de Proyecto Software desde Eclipse" width="600"/>
+  <br>
+  <em>Figura 1. Creación de Proyecto Software desde Eclipse.</em>
+</div>
 
 4. Como nombre de proyecto escriba LAB_RTOS y como Template seleccione Hello MicroC/OS-II. Esta Template realiza la portabilidad de UCOS sobre nuestro proyecto NIOS.
-![Figura 2. Selección de plantilla “Hello MicroC” para importar UCOS en nuestro proyecto.](img/Imagen2.jpg)
+
+<div align="center">
+  <img src="img/Imagen2.jpg" alt="Selección de plantilla Hello MicroC" width="600"/>
+  <br>
+  <em>Figura 2. Selección de plantilla "Hello MicroC" para importar UCOS en nuestro proyecto.</em>
+</div>
 
 Compile el proyecto LAB_RTOS y ejecútelo en la consola de NIOSII. Observe los mensajes que aparecen en consola: “Hello from Task1”..”Hello from Task2”.
 
@@ -38,12 +46,20 @@ Para la entrega de las prácticas debe presentar un documento Word o PDF dónde 
 Asimismo, al finalizar la práctica, deben entregar junto con el PDF el fichero archivado del software desarrollado.
 Para ello, seleccionando la carpeta de aplicación del proyecto, con el botón derecho del ratón pulse Export->General->Archive File.
 
-![Figura 3. Exportar proyecto software como ZIP.](img/Imagen3.jpg)
+<div align="center">
+  <img src="img/Imagen3.jpg" alt="Exportar proyecto software como ZIP" width="600"/>
+  <br>
+  <em>Figura 3. Exportar proyecto software como ZIP.</em>
+</div>
 
 Puede archivar su proyecto tantas veces como quiera a lo largo de las sesiones de prácticas para no perder el trabajo realizado o para almacenar versiones .ZIP de las mismas.
-Para recuperar el fichero ZIP en cualquier momento solo debe de importarlo como File/Import/General->Existing Projects into Workspace e indicar el directorio de trabajo habitual como “root” y seleccionar el .ZIP como fichero desde el que importar los proyectos.
+Para recuperar el fichero ZIP en cualquier momento solo debe de importarlo como File/Import/General->Existing Projects into Workspace e indicar el directorio de trabajo habitual como "root" y seleccionar el .ZIP como fichero desde el que importar los proyectos.
 
-![Figura 4. Importar proyecto desde fichero ZIP en el workspace.](img/Imagen4.jpg)
+<div align="center">
+  <img src="img/Imagen4.jpg" alt="Importar proyecto desde fichero ZIP" width="600"/>
+  <br>
+  <em>Figura 4. Importar proyecto desde fichero ZIP en el workspace.</em>
+</div>
 
 La práctica debe entregarla cada alumno de forma individual, aunque el trabajo se puede realizar en grupos.
 
