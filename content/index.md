@@ -28,8 +28,14 @@ title: "Sistemas Operativos en Tiempo Real - UCOSII - IntelFPGA"
 - Asignatura Sistemas Integrados Digitales. Máster Universitario de Ingeniería de Sistemas Electrónicos (MUISE): [consulta de asignaturas](https://www.upv.es/estudios/master/muise/consulta/asignaturas/)
 - Asignatura Codiseño Hardware - Software. Máster Universitario de Ingeniería de Telecomunicaciones (MUIT): [consulta de asignaturas](https://www.upv.es/estudios/master/muit/consulta/asignaturas/)
 
+## PDF descargables 👨‍💻 
+
+- [Descargar 100-uC-OS-II-002.pdf](slides_book/100-uC-OS-II-002.pdf)
+- [Descargar RTOS_25_lesson1.pdf](slides_book/RTOS_25_lesson1.pdf)
+- [Descargar RTOS_25_lesson2.pdf](slides_book/RTOS_25_lesson2.pdf)
+- [Descargar RTOS_25_lesson3.pdf](slides_book/RTOS_25_lesson3.pdf)
+- [Descargar uCOS-II-RefMan_withtimers.pdf](slides_book/uCOS-II-RefMan_withtimers.pdf)
+
 ---
 
-**¿Listo para comenzar?** 👨‍💻 Explora la [documentación de teoría](content/slides_book/) para empezar a desarrollar con RTOS Codesign.
-
-> 💡 **Tip**: Puedes usar VSC como editor de texto, usa IA como Copilot UPV para ayudar a desarrollar código y controla versiones mediante Git.
+> 💡 **Tip**: Puedes usar Visual Studio Code como editor de texto, usa IA como Copilot UPV para ayudar a desarrollar código y controla versiones mediante Git.
