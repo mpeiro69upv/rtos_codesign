@@ -6,9 +6,9 @@ Estudie el fichero ejemplo proporcionado y cree dos tareas adicionales, una con 
 
 Compile y observe los resultados obtenidos. Recuerde capturar pantalla y redactar el documento de entrega de la práctica.
 
-### Ejemplo de código de referencia
+### Plantilla de código para completar
 
-El siguiente fragmento muestra la estructura típica del fichero `hello_ucosii.c` de la template de uCOS-II, con dos tareas de ejemplo. Úsalo como base para añadir las nuevas tareas:
+El siguiente fragmento está pensado para que el estudiante lo pueda copiar completo y rellenar las zonas marcadas con `TODO 1`, `TODO 2`, etc.:
 
 ```c
 #include <stdio.h>
@@ -20,20 +20,20 @@ El siguiente fragmento muestra la estructura típica del fichero `hello_ucosii.c
 /* Pilas de tareas */
 OS_STK task1_stk[TASK_STACKSIZE];
 OS_STK task2_stk[TASK_STACKSIZE];
-OS_STK task3_stk[TASK_STACKSIZE];
-OS_STK task4_stk[TASK_STACKSIZE];
+/* TODO 1: pila de la tarea 3 */
+/* TODO 2: pila de la tarea 4 */
 
 /* Prioridades de las tareas */
 #define TASK1_PRIORITY  1
 #define TASK2_PRIORITY  2
-#define TASK3_PRIORITY  3
-#define TASK4_PRIORITY  4
+/* TODO 3: prioridad de la tarea 3 */
+/* TODO 4: prioridad de la tarea 4 */
 
 /* Prototipos */
 void task1(void* pdata);
 void task2(void* pdata);
-void task3(void* pdata);
-void task4(void* pdata);
+/* TODO 5: prototipo de la tarea 3 */
+/* TODO 6: prototipo de la tarea 4 */
 
 /* Tarea 1: periodo ~500 ms */
 void task1(void* pdata)
@@ -60,8 +60,8 @@ void task3(void* pdata)
 {
 	while (1)
 	{
-		printf("Hello from task3\n");
-		OSTimeDlyHMSM(0, 0, 1, 0);
+		/* TODO 7: escriba el mensaje de la tarea 3 */
+		/* TODO 8: añada un retardo de 1 segundo */
 	}
 }
 
@@ -70,8 +70,8 @@ void task4(void* pdata)
 {
 	while (1)
 	{
-		printf("Hello from task4\n");
-		OSTimeDlyHMSM(0, 0, 5, 0);
+		/* TODO 9: escriba el mensaje de la tarea 4 */
+		/* TODO 10: añada un retardo de 5 segundos */
 	}
 }
 
@@ -85,20 +85,15 @@ int main(void)
 					TASK2_PRIORITY, TASK2_PRIORITY, task2_stk,
 					TASK_STACKSIZE, NULL, 0);
 
-	OSTaskCreateExt(task3, NULL, &task3_stk[TASK_STACKSIZE-1],
-					TASK3_PRIORITY, TASK3_PRIORITY, task3_stk,
-					TASK_STACKSIZE, NULL, 0);
+	/* TODO 11: creación de la tarea 3 */
 
-	OSTaskCreateExt(task4, NULL, &task4_stk[TASK_STACKSIZE-1],
-					TASK4_PRIORITY, TASK4_PRIORITY, task4_stk,
-					TASK_STACKSIZE, NULL, 0);
+	/* TODO 12: creación de la tarea 4 */
 
 	OSStart();  /* Inicia el scheduler de uCOS-II */
 
 	return 0;
 }
 ```
-
 > **Nota:** `OSTimeDlyHMSM(h, m, s, ms)` suspende la tarea el tiempo indicado en horas, minutos, segundos y milisegundos. `OSStart()` arranca el scheduler y no retorna nunca.
 
 ### Cuestiones
@@ -107,4 +102,5 @@ int main(void)
 - ¿Qué elementos necesita una tarea para ser creada?
 - ¿Cuándo se inicia el scheduler de tareas de UCOS y las tareas empiezan a funcionar?
 
+[Ir Ejercicio 2](ex2.md)
 [Volver a Índice](index.md)
