@@ -25,7 +25,7 @@ Inicialmente vamos a crear nuestro primer proyecto con uCOSII, denominado LAB_RT
 3. Desde ECLIPSE File->New->NiosII Application and BSP from Template. Cargue el fichero .sopcinfo proporcionado en la práctica.
 
 <div align="center">
-  <img src="img/Imagen1.bmp" alt="Creación de Proyecto Software desde Eclipse" width="600"/>
+  <img src="img/Imagen1.png" alt="Creación de Proyecto Software desde Eclipse" width="600"/>
   <br>
   <em>Figura 1. Creación de Proyecto Software desde Eclipse.</em>
 </div>
