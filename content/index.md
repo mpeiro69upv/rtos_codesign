@@ -1,6 +1,6 @@
 
 ---
-"Sistemas Operativos en Tiempo Real - UCOSII - IntelFPGA"
+title: "Sistemas Operativos en Tiempo Real - UCOSII - IntelFPGA"
 ---
 
 **Author:** Marcos Martínez Peiró (mpeiro@eln.upv.es)  
