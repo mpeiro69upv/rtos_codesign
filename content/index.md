@@ -9,7 +9,7 @@
 
 ## Contenido
 
-### [Introducción](intro_lab.md)
+### [Introducción](intro_ucoslab.md)
 ### [Ejercicio 1: Creación de Tareas](ex1.md)
 ### [Ejercicio 2: Arquitectura Software](ex2.md)
 ### [Ejercicio 3: Periféricos. Leds en tareas](ex3.md)
