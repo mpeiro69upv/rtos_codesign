@@ -130,7 +130,7 @@ Use los ficheros proporcionados en la practica de LEDs (`led.c` y `led.h`) para 
 - La `task4`, que se ejecuta cada 5 segundos, apaga los LEDs que enciende la `task3` mediante `Led_OFF_Some(LED_ptr,8,2);`.
 
 <div align="center">
-	<img src="img/Imagen15.png" alt="Ejemplo de task2.c" width="300"/>
+	<img src="img/Imagen15.png" alt="Ejemplo de task2.c" width="450"/>
 	<br>
 	<em>Figura 15. Ejemplo de task2.c.</em>
 </div>
