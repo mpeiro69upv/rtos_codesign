@@ -21,6 +21,10 @@ Sin embargo, también es posible ejecutar las prácticas en un entorno de simula
 Inicialmente vamos a crear nuestro primer proyecto con uCOSII, denominado LAB_RTOS. 
 
 1. Descargue los ficheros SOPCINFO y SOF desde PoliformaT. Inicie Quartus. Programe el dispositivo mediante el fichero DE1_SoC_Media_Computer.sof.
+
+   - [DE1_SoC_Media_Computer.sof](files_ucosii/DE1_SoC_Media_Computer.sof)
+   - [nios_system.sopcinfo](files_ucosii/nios_system.sopcinfo)
+   <br>
 2. Inicie ECLIPSE desde QuartusII mediante Tools->NIOSII Software Build Tools for Eclipse, el workspace indicado debe ser /DE1_SoC_Media_Computer/software.
 3. Desde ECLIPSE File->New->NiosII Application and BSP from Template. Cargue el fichero .sopcinfo proporcionado en la práctica.
 
