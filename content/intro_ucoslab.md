@@ -25,7 +25,7 @@ Inicialmente vamos a crear nuestro primer proyecto con uCOSII, denominado LAB_RT
 3. Desde ECLIPSE File->New->NiosII Application and BSP from Template. Cargue el fichero .sopcinfo proporcionado en la práctica.
 
 <div align="center">
-  <img src="img/Imagen1.jpg" alt="Creación de Proyecto Software desde Eclipse" width="600"/>
+  <img src="img/Imagen1.bmp" alt="Creación de Proyecto Software desde Eclipse" width="600"/>
   <br>
   <em>Figura 1. Creación de Proyecto Software desde Eclipse.</em>
 </div>
@@ -33,7 +33,7 @@ Inicialmente vamos a crear nuestro primer proyecto con uCOSII, denominado LAB_RT
 4. Como nombre de proyecto escriba LAB_RTOS y como Template seleccione Hello MicroC/OS-II. Esta Template realiza la portabilidad de UCOS sobre nuestro proyecto NIOS.
 
 <div align="center">
-  <img src="img/Imagen2.jpg" alt="Selección de plantilla Hello MicroC" width="600"/>
+  <img src="img/Imagen2.bmp" alt="Selección de plantilla Hello MicroC" width="600"/>
   <br>
   <em>Figura 2. Selección de plantilla "Hello MicroC" para importar UCOS en nuestro proyecto.</em>
 </div>
@@ -47,7 +47,7 @@ Asimismo, al finalizar la práctica, deben entregar junto con el PDF el fichero 
 Para ello, seleccionando la carpeta de aplicación del proyecto, con el botón derecho del ratón pulse Export->General->Archive File.
 
 <div align="center">
-  <img src="img/Imagen3.jpg" alt="Exportar proyecto software como ZIP" width="600"/>
+  <img src="img/Imagen3.bmp" alt="Exportar proyecto software como ZIP" width="600"/>
   <br>
   <em>Figura 3. Exportar proyecto software como ZIP.</em>
 </div>
@@ -56,7 +56,7 @@ Puede archivar su proyecto tantas veces como quiera a lo largo de las sesiones d
 Para recuperar el fichero ZIP en cualquier momento solo debe de importarlo como File/Import/General->Existing Projects into Workspace e indicar el directorio de trabajo habitual como "root" y seleccionar el .ZIP como fichero desde el que importar los proyectos.
 
 <div align="center">
-  <img src="img/Imagen4.jpg" alt="Importar proyecto desde fichero ZIP" width="600"/>
+  <img src="img/Imagen4.bmp" alt="Importar proyecto desde fichero ZIP" width="600"/>
   <br>
   <em>Figura 4. Importar proyecto desde fichero ZIP en el workspace.</em>
 </div>
