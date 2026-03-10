@@ -27,3 +27,5 @@ Inicialmente vamos a crear nuestro primer proyecto con uCOSII, denominado LAB_RT
 4. Como nombre de proyecto escriba LAB_RTOS y como Template seleccione Hello MicroC/OS-II. Esta Template realiza la portabilidad de UCOS sobre nuestro proyecto NIOS.
 
 Compile el proyecto LAB_RTOS y ejecútelo en la consola de NIOSII. Observe los mensajes que aparecen en consola: “Hello from Task1”..”Hello from Task2”.
+
+[Volver a Índice](index.md)
