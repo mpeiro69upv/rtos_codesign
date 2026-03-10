@@ -38,7 +38,7 @@ volatile int *keyboard_ptr = (int *) PS2_KEY_BASE; // keyboard address
 Y se deben hacer publicos en su fichero de cabecera, como se observa en la Figura 13.
 
 <div align="center">
-	<img src="img/Imagen13.png" alt="Fichero de cabecera pract1_rtos.h" width="600"/>
+	<img src="img/Imagen13.png" alt="Fichero de cabecera pract1_rtos.h" width="300"/>
 	<br>
 	<em>Figura 13. Fichero de cabecera pract1_rtos.h.</em>
 </div>
@@ -97,7 +97,7 @@ extern INT8U error;
 Se deben incluir todas las librerias en `pract1_rtos.h` y que este sea el unico fichero a incluir en cada `.h` de las tareas.
 
 <div align="center">
-	<img src="img/Imagen14.png" alt="Ejemplo de fichero de cabecera de task1.h" width="600"/>
+	<img src="img/Imagen14.png" alt="Ejemplo de fichero de cabecera de task1.h" width="300"/>
 	<br>
 	<em>Figura 14. Ejemplo de fichero de cabecera de la task1 (task1.h).</em>
 </div>
