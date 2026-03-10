@@ -27,7 +27,7 @@ Cree las carpetas indicadas mediante `File -> New -> Source Folder` y `Folder` p
 Una vez creadas las carpetas observará un árbol como el mostrado en la Figura 6.
 
 <div align="center">
-	<img src="img/Imagen6.png" alt="Árbol de carpetas del proyecto software" width="450"/>
+	<img src="img/Imagen6.png" alt="Árbol de carpetas del proyecto software" width="380"/>
 	<br>
 	<em>Figura 6. Árbol de carpetas del proyecto software tras crear AppSW y BaseSW.</em>
 </div>
@@ -37,7 +37,7 @@ Una vez creadas las carpetas observará un árbol como el mostrado en la Figura 
 Incluya en `BaseSW/inc` el fichero `led.h` y en `BaseSW/src` el fichero `led.c` entregado en la práctica. Realice lo mismo con el fichero de VGA.
 
 <div align="center">
-	<img src="img/Imagen7.png" alt="Carpetas de BaseSW con ficheros de control de periféricos" width="450"/>
+	<img src="img/Imagen7.png" alt="Carpetas de BaseSW con ficheros de control de periféricos" width="380"/>
 	<br>
 	<em>Figura 7. Carpetas de BaseSW con los ficheros de control de periféricos.</em>
 </div>
@@ -49,7 +49,7 @@ Observe el contenido de los ficheros .c y .h entregados.
 Edite el contenido del programa principal `pract1_rtos.c` para que no aparezcan los cuerpos de las tareas, sino que estos se localicen en ficheros independientes. Para ello deberá crear `task1.c` y `task1.h` y almacenarlos en las carpetas `AppSW/src` y `AppSW/inc`. Haga lo mismo con el resto de tareas.
 
 <div align="center">
-	<img src="img/Imagen8.png" alt="Carpeta AppSW/inc con sus ficheros de cabecera" width="450"/>
+	<img src="img/Imagen8.png" alt="Carpeta AppSW/inc con sus ficheros de cabecera" width="380"/>
 	<br>
 	<em>Figura 8. Carpeta AppSW/inc con sus ficheros de cabecera.</em>
 </div>
@@ -77,7 +77,7 @@ Un ejemplo de `task1.c` en sus respectivos directorios es:
 Para poder crear las tareas desde el fichero principal, necesita incluir ahora los ficheros de cabecera de las tareas; de lo contrario no localizará el cuerpo de las tareas al utilizar el servicio `OSTaskCreateExt()`. Una forma elegante es incluir solo el fichero `pract1_rtos.h` en `pract1_rtos.c` y, en ese fichero de cabecera, incluir los elementos indicados en la Figura 11.
 
 <div align="center">
-	<img src="img/Imagen11.png" alt="Inclusión de ficheros de cabecera en pract1_rtos.h" width="450"/>
+	<img src="img/Imagen11.png" alt="Inclusión de ficheros de cabecera en pract1_rtos.h" width="380"/>
 	<br>
 	<em>Figura 11. Inclusión de ficheros de cabecera en fichero pract1_rtos.h.</em>
 </div>
