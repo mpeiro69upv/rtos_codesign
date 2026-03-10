@@ -71,4 +71,5 @@ Para recuperar el fichero ZIP en cualquier momento solo debe de importarlo como 
 
 La práctica debe entregarla cada alumno de forma individual, aunque el trabajo se puede realizar en grupos.
 
+[Ir Ejercicio 1](ex1.md)
 [Volver a Índice](index.md)
