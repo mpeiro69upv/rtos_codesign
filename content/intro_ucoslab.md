@@ -30,6 +30,7 @@ Inicialmente vamos a crear nuestro primer proyecto con uCOSII, denominado LAB_RT
   <em>Figura 1. Creación de Proyecto Software desde Eclipse.</em>
 </div>
 
+
 4. Como nombre de proyecto escriba LAB_RTOS y como Template seleccione Hello MicroC/OS-II. Esta Template realiza la portabilidad de UCOS sobre nuestro proyecto NIOS.
 
 <div align="center">
@@ -37,6 +38,7 @@ Inicialmente vamos a crear nuestro primer proyecto con uCOSII, denominado LAB_RT
   <br>
   <em>Figura 2. Selección de plantilla "Hello MicroC" para importar UCOS en nuestro proyecto.</em>
 </div>
+
 
 Compile el proyecto LAB_RTOS y ejecútelo en la consola de NIOSII. Observe los mensajes que aparecen en consola: “Hello from Task1”..”Hello from Task2”.
 
@@ -52,6 +54,7 @@ Para ello, seleccionando la carpeta de aplicación del proyecto, con el botón d
   <em>Figura 3. Exportar proyecto software como ZIP.</em>
 </div>
 
+
 Puede archivar su proyecto tantas veces como quiera a lo largo de las sesiones de prácticas para no perder el trabajo realizado o para almacenar versiones .ZIP de las mismas.
 Para recuperar el fichero ZIP en cualquier momento solo debe de importarlo como File/Import/General->Existing Projects into Workspace e indicar el directorio de trabajo habitual como "root" y seleccionar el .ZIP como fichero desde el que importar los proyectos.
 
@@ -60,6 +63,7 @@ Para recuperar el fichero ZIP en cualquier momento solo debe de importarlo como 
   <br>
   <em>Figura 4. Importar proyecto desde fichero ZIP en el workspace.</em>
 </div>
+
 
 La práctica debe entregarla cada alumno de forma individual, aunque el trabajo se puede realizar en grupos.
 
