@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Full Site Rebuild and Deploy",
+			"type": "shell",
+			"command": "git add . && git commit -m \"Forzar actualización ejercicios 7-10\" && git push origin v4",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Git Sync PowerShell",
+			"type": "shell",
+			"command": "git add .; git commit -m \"Forzar actualización ejercicios 7-10\"; git push origin v4",
+			"isBackground": false,
+			"group": "build"
+		}
+	]
+}
