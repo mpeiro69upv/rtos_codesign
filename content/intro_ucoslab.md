@@ -1,5 +1,5 @@
 ---
-title: "1. Sistemas Operativos en Tiempo Real - UCOSII - IntelFPGA"
+title: "0. Sistemas Operativos en Tiempo Real - UCOSII - IntelFPGA"
 ---
 ## OBJETIVOS
 En esta práctica vamos a abordar los fundamentos de trabajo de un sistema operativo en tiempo real –RTOS.

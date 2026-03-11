@@ -1,8 +1,6 @@
 ---
-title: "2. Creación de Tareas"
+title: "1. Creación de Tareas"
 ---
-
-## EJERCICIO 1. CREACIÓN DE TAREAS
 
 Modifique el nombre del fichero principal `hello_ucosii.c` por `pract1_rtos.c`.
 

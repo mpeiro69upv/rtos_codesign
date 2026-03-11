@@ -1,8 +1,6 @@
 ---
-title: "5. Uso de VGA y Funciones No Reentrantes"
+title: "4. Uso de VGA y Funciones No Reentrantes"
 ---
-
-## EJERCICIO 4: USO DE VGA Y FUNCIONES NO REENTRANTES
 
 Ahora vamos a inicializar la pantalla VGA y enviar mensajes por ella. Para ello creamos una función `Init_App()` en un fichero fuente llamado `init.c` que crearemos en `AppSW/src`. Añadiremos su correspondiente `init.h` en `AppSW/inc`.
 
