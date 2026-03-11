@@ -96,3 +96,6 @@ Ahora vamos a incluir interrupciones de pulsadores en nuestro sistema. Para ello
 
 **Pregunta de reflexión:**
 - ¿Qué servicios se utilizan para incorporar la ISR al scheduler de UCOSII?
+
+[Ir Ejercicio 6](ex6.md)
+[Volver a Indice](index.md)
