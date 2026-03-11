@@ -36,6 +36,13 @@ Una vez creadas las carpetas observará un árbol como el mostrado en la Figura 
 
 Incluya en `BaseSW/inc` el fichero `led.h` y en `BaseSW/src` el fichero `led.c` entregado en la práctica. Realice lo mismo con el fichero de VGA.
 
+**Archivos para descargar:**
+
+- [led.h](files_ucosii/led.h) - Archivo de cabecera para el control de LEDs
+- [led.c](files_ucosii/led.c) - Archivo fuente para el control de LEDs  
+- [vga.h](files_ucosii/vga.h) - Archivo de cabecera para el control de VGA
+- [vga.c](files_ucosii/vga.c) - Archivo fuente para el control de VGA
+
 <div align="center">
 	<img src="img/Imagen7.png" alt="Carpetas de BaseSW con ficheros de control de periféricos" width="190"/>
 	<br>
