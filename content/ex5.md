@@ -49,7 +49,7 @@ Utilícelo en todas las tareas que compartan la variable `line`. Compile y verif
 
 Ahora vamos a incluir interrupciones de pulsadores en nuestro sistema. Para ello copie los ficheros `isr.c` e `isr.h` entregados en la práctica en su carpeta `AppSW`. Estudie el contenido de ambos.
 
->![Note] "Descarga ficheros de atención a interrupción"
+>[!note] *Descarga ficheros de atención a interrupción*
 >
 > - [isr.h](files_ucosii/isr.h) - Archivo de cabecera para rutinas de servicio de interrupción
 > - [isr.c](files_ucosii/isr.c) - Archivo fuente con implementación de ISR para pulsadores
