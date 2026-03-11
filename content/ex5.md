@@ -1,3 +1,7 @@
+---
+title: "6. Semáforos e Interrupciones"
+---
+
 ## EJERCICIO 5: FUNCIONES REENTRANTES, SECCIÓN CRÍTICA Y SEMÁFOROS. USO DE INTERRUPCIONES EN UCOSII
 Ahora pasamos a ver cómo mejorar el sistema para que no se pueda utilizar la función no reentrante `Print_VGA()` por varias task al mismo tiempo. Suponiendo que una task es expulsada por otra cuando está en esta función las consecuencias pueden ser nefastas ya que la actualización de la variable global compartida no es segura. Ello podría ocurrir cuando una ISR se activa en el instante en que la task intenta usar `Print_VGA()`.
 
@@ -36,6 +40,38 @@ Así podemos usar el semáforo en todas las tareas que compartan la variable glo
 </div>
 
 <br>
+
+### Task1 con uso de semáforos para el uso de UART JTAG y VGA
+```c
+/* include necessary headers */
+
+#include "..\inc\task1.h"
+
+
+/* Prints "Hello World" and sleeps for three seconds */
+void task1(void* pdata)
+{
+
+  char vga_msg[60];
+  while (1)
+  { 
+    Toggle_Led(LED_ptr,0);
+    
+    /* critical section */
+    OSSemPend(Semaphore, 0, NULL);
+
+    printf("Hello from task1\n");
+    snprintf(vga_msg, sizeof(vga_msg), "%02d   Hello from task1", line);
+    Print_VGA(vga_msg, &line);
+    
+    OSSemPost(Semaphore);
+    /* end of critical section */
+
+    Toggle_Led(LED_ptr,0);
+    OSTimeDlyHMSM(0, 0, 3, 0);
+  }
+}
+```
 
 Utilícelo en todas las tareas que compartan la variable `line`. Compile y verifique el resultado.
 

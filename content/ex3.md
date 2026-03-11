@@ -1,3 +1,7 @@
+---
+title: "4. Definición de Periféricos y LEDs"
+---
+
 ## EJERCICIO 3. DEFINICION DE PERIFERICOS. USO DE LEDS EN LAS TAREAS
 
 Vamos a iniciar el uso de los perifericos en las tareas que tenemos programadas. Para ello hay que incluir todas las funciones que se van a usar, incorporando las librerias en el fichero de cabecera principal. En el fichero principal se definen los punteros a posiciones de memoria de los perifericos.
