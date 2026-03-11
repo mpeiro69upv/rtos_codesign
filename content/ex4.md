@@ -12,7 +12,7 @@ Para ello use los ficheros `init.c` e `init.h` proporcionados en la práctica.
 El fichero de cabecera `init.h` hará públicas las variables globales definidas en `init.c` así como los prototipos de funciones cuyo cuerpo se encuentre en `init.c`.
 
 <div align="center">
-	<img src="img/Imagen16.png" alt="Ejemplo de init.h" width="600"/>
+	<img src="img/Imagen16.png" alt="Ejemplo de init.h" width="450"/>
 	<br>
 	<em>Figura 16. Ejemplo de init.h</em>
 </div>
@@ -30,7 +30,7 @@ Compile y verifique que la VGA funciona.
 Introducimos el uso de `Print_VGA()` en las tasks de forma que envíen el mensaje por la VGA. Realice esto con todas las task y compruebe su funcionamiento.
 
 <div align="center">
-	<img src="img/Imagen17.png" alt="Mensajes por VGA desde Tasks" width="600"/>
+	<img src="img/Imagen17.png" alt="Mensajes por VGA desde Tasks" width="450"/>
 	<br>
 	<em>Figura 17. Mensajes por VGA desde Tasks.</em>
 </div>
