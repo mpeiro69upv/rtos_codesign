@@ -61,3 +61,5 @@ Vamos a incluir el número de línea para que se visualice en la VGA. Para ello 
 
 **Importante:** Recuerde archivar su proyecto en Zip para no perder la versión actualizada de su trabajo hasta el momento (al menos como alternativa al uso de Git o sistemas de mantenimiento de versiones).
 
+[Ir Ejercicio 5](ex5.md)
+[Volver a Indice](index.md)
