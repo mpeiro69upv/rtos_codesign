@@ -20,7 +20,7 @@ title: "Sistemas Operativos en Tiempo Real - UCOSII - IntelFPGA"
 ### [Ejercicio 8: Mailbox. Uso de Interrupciones](ex8.md)
 ### [Ejercicio 9: Colas de Mensajes. Uso de Ps2](ex9.md)
 ### [Ejercicio 10: Flags de eventos](ex10.md)
-### [Ejercicio 11: Partición de Memoria](ex11.md)
+### [Ejercicio 11: Uso de particiones de memoria con uC/OS-II](ex11.md)
 
 ## 🙏 Teoría Recomendada
 
