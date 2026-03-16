@@ -7,7 +7,7 @@ Vamos a modificar la rutina de atención a interrupción de los pulsadores KEY. 
 ### Funcionalidad de la interrupción
 
 La interrupción ahora realizará la siguiente función: 
-- **Pulsando el botón KEY3**: el dibujo del Grinch sube de posiciones 
+- **Pulsando el botón KEY3**: el dibujo de Homer sube de posiciones 
 - **Pulsando el botón KEY2**: el dibujo desciende
 
 Para conocer la nueva posición donde se pintará el dibujo se debe comunicar mediante un paso de mensajes con **MailBox**. Los MailBox no necesitan usar variables compartidas entre tasks, tan solo deben escribir un valor en el mail desde ISR o tarea y leer el nuevo valor desde otra tarea.
@@ -88,9 +88,9 @@ OSIntEnter(); /* Inform the OS that we are starting an ISR */
 OSIntExit(); /* Inform the OS that we are leaving the ISR */
 }
 ```
-### Recepción del MailBox (Pend) desde tarea Grinch
+### Recepción del MailBox (Pend) desde tarea Homer
 
-Modifique la tarea Grinch para que se dibuje cada 2 segundos en la posición enviada desde la ISR. Para ello en la tarea debe recibir la nueva posición desde el MailBox y modificar el valor de la variable que indica desde donde se inicia el dibujo: `nadal_pos`.
+Modifique la tarea Homer para que se dibuje cada 2 segundos en la posición enviada desde la ISR. Para ello en la tarea debe recibir la nueva posición desde el MailBox y modificar el valor de la variable que indica desde donde se inicia el dibujo: `homer_pos`.
 
 Antes del bucle de la task declaramos un puntero para almacenar los mensajes recibidos y le damos un valor inicial a su contenido de 10 para que, aunque no se pulse ninguna KEY, se siga dibujando en la línea 10.
 
@@ -100,11 +100,11 @@ Antes del bucle de la task declaramos un puntero para almacenar los mensajes rec
 ```c
 /* local pointer declaration*/
 
-  int *pMailBox_grinch = NULL;
-  *pMailBox_grinch = nadal_pos;
+  int *pMailBox_homer = NULL;
+    *pMailBox_homer = homer_pos;
 ```
 
-Dentro del bucle recibimos en la dirección `pMailBox_grinch` el mensaje desde el mailbox `SharedMail`.
+Dentro del bucle recibimos en la dirección `pMailBox_homer` el mensaje desde el mailbox `SharedMail`.
 
 <br>
 
@@ -112,12 +112,12 @@ Dentro del bucle recibimos en la dirección `pMailBox_grinch` el mensaje desde e
 ```c
 //receive message from mailbox
 
-    pMailBox_grinch = (int*) OSMboxPend(SharedMail,1000,&err);
+    pMailBox_homer = (int*) OSMboxPend(SharedMail,1000,&err);
     if(err == OS_ERR_NONE){
-      nadal_pos = *pMailBox_grinch;
+      homer_pos = *pMailBox_homer;
       OSSemPend(Semaphore,0,&err);
       alt_ucosii_check_return_code(err);
-      printf("Mail is %d: new start position is %d\n",*pMailBox_grinch,nadal_pos);
+      printf("Mail is %d: new start position is %d\n",*pMailBox_homer,homer_pos);
       OSSemPost(Semaphore);
       alt_ucosii_check_return_code(err);
     }

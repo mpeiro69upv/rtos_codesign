@@ -1,46 +1,48 @@
 ---
-title: "6. Tareas Nadal y Grinch"
+title: "6. Tareas Bart y Homer"
 ---
 
-Llegados a este punto de la práctica, el espíritu navideño nos invade y decidimos crear dos tareas nuevas; una dibuja un árbol de navidad en la pantalla VGA y la otra nos fastidia el dibujo.
+En esta práctica trabajaremos con unos dibujos de Bart y Homer en la pantalla VGA.
 
-Construya la task TaskNadal con el sigiuente código.
+El objetivo de este ejercicio es crear dos tareas periódicas de dibujo:
 
-### Tarea tasknadal
+- `TaskBart`: dibuja la figura de Bart en la pantalla.
+- `TaskHomer`: dibuja la figura de Homer en la pantalla.
 
+Implemente ambas tareas usando los archivos proporcionados, intégralas en el proyecto RTOS, compile y capture los resultados de ejecución.
+
+### Tarea taskbart
+
+Construya la tarea `TaskBart` con el siguiente código y verifique que el dibujo se visualiza correctamente en VGA con su periodo configurado.
 ```c
-#include "..\inc\tasknadal.h"
-
-/* Prints "BON NADAL" and sleeps for x seconds */
-void TaskNadal(void* pdata)
+void TaskBart(void* pdata)
 {
-  char visualiza_string[40] = "Hello from NADAL";
-  char blank[40]="                                      \0";
+	char visualiza_string[40] = "Hey Man!!";
+	char blank[36]="                                  \0";
 
-  char visualiza_string_nadal[15][40]=
-  {                   "                 ",
-                      "        X        ",
-                      "       XXX       ",
-                      "      XXXXX      ",
-                      "     XXXXXXX     ",
-                      "    XXXXXXXXX    ",
-                      "   XXXXXXXXXXX   ",
-                      "  XXXXXXXXXXXXX  ",
-                      "       XXX       ",
-                      "                 ",
-                      " MERRY CHRISTMAS ",
-                      "    BON NADAL    ",
-                      "                 ",
-                      "                 ",
-                      "                 "};
+	char visualiza_string_bart[15][40]=
+	{					"                 ",
+            "    |\\/\\/\\/|     ",
+            "    |      |     ",
+            "    |      |     ",
+            "    | (o)(o)     ",
+            "    C      _)    ",
+            "    | ,___|      ",
+            "    |   /        ",
+            "   /____\\        ",
+            "  /      \\       ",
+            "                 ",
+            " EAT MY SHORTS!  ",
+            "                 ",
+            "                 ",
+            "                 "};
 
-  int nadal_pos=10;
-
+	int bart_pos=10;
   while (1)
   {
-    printf("%s\n",visualiza_string);
+	  printf("%s\n",visualiza_string);
 
-    
+	  OSTimeDlyHMSM(0, 0, 4, 0);
     Led_ON_All(LED_ptr);
 
     //clean text on black box
@@ -49,24 +51,22 @@ void TaskNadal(void* pdata)
     }
 
     for (int var = 0; var < 15; ++var) {
-      VGA_text (50, nadal_pos+var, visualiza_string_nadal[var],character_buffer);
+      VGA_text (50, bart_pos+var, visualiza_string_bart[var],character_buffer);
     }
-
-   OSTimeDlyHMSM(0, 0, 4, 0);
-    
   }
 }
 ```
 
-Compile y capture los resultados obtenidos.
-Construya la tarea Grinch y de nuevo capture los resultados obtenidos.
+### Tarea taskhomer
+
+Construya la tarea `TaskHomer` y compruebe su visualización y sincronización temporal con el resto de tareas del sistema.
 
 **Archivos para descargar:**
 
-- [tasknadal.h](files_ucosii/tasknadal.h) - Archivo de cabecera para la tarea Nadal
-- [tasknadal.c](files_ucosii/tasknadal.c) - Archivo fuente de la tarea Nadal  
-- [taskgrinch.h](files_ucosii/taskgrinch.h) - Archivo de cabecera para la tarea Grinch
-- [taskgrinch.c](files_ucosii/taskgrinch.c) - Archivo fuente de la tarea Grinch
+- [taskbart.h](files_ucosii/taskbart.h) - Archivo de cabecera para la tarea Bart
+- [taskbart.c](files_ucosii/taskbart.c) - Archivo fuente de la tarea Bart
+- [taskhomer.h](files_ucosii/taskhomer.h) - Archivo de cabecera para la tarea Homer
+- [taskhomer.c](files_ucosii/taskhomer.c) - Archivo fuente de la tarea Homer
 
 Puede usar las funciones de chequeo de errores alt_ucos_error_code.c y su fichero de cabecera alt_ucos_error_code.h tras los códigos de uso de servicios de UCOS que proporcionen variables de error como retorno de llamadas al servicio.
 
@@ -76,7 +76,7 @@ Puede usar las funciones de chequeo de errores alt_ucos_error_code.c y su ficher
 - [alt_ucosii_simple_error_check.c](files_ucosii/alt_ucosii_simple_error_check.c) - Archivo fuente para control de errores UCOS
 
 Incluya la librería stdlib.h en pract1_rtos.h, necesaria para el correcto funcionamiento de alt_ucos_error_code.c
-•	¿Qué periodo tienen las tareas nadal y grinch? ¿Se ven durante todo el periodo?
+•	¿Qué periodo tienen las tareas Bart y Homer? ¿Se ven durante todo el periodo?
 •	¿Qué hacen las funciones de chequeo de errores? ¿dónde las utilizaría?
 
 [Ir Ejercicio 7](ex7.md)
