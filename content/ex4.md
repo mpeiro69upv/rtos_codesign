@@ -6,10 +6,10 @@ Ahora vamos a inicializar la pantalla VGA y enviar mensajes por ella. Para ello 
 
 Para ello use los ficheros `init.c` e `init.h` proporcionados en la práctica.
 
-**Archivos para descargar:**
-
-- [init.h](files_ucosii/init.h) - Archivo de cabecera con prototipos y variables globales
-- [init.c](files_ucosii/init.c) - Archivo fuente con implementación de Init_App()
+>[!note] *Archivos para descargar:*
+>
+> - [init.h](files_ucosii/init.h) - Archivo de cabecera con prototipos y variables globales
+> - [init.c](files_ucosii/init.c) - Archivo fuente con implementación de Init_App()
 
 El fichero de cabecera `init.h` hará públicas las variables globales definidas en `init.c` así como los prototipos de funciones cuyo cuerpo se encuentre en `init.c`.
 
