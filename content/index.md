@@ -15,7 +15,7 @@ title: "Sistemas Operativos en Tiempo Real - UCOSII - IntelFPGA"
 ### [Ejercicio 3: Periféricos. Leds en tareas](ex3.md)
 ### [Ejercicio 4: Uso de VGA. Funciones Reentrantes](ex4.md)
 ### [Ejercicio 5: Sección Crítica y Semáforos. Uso de Interrupciones](ex5.md)
-### [Ejercicio 6: Tareas Nadal y Grinch](ex6.md)
+### [Ejercicio 6: Tareas Bart y Homer](ex6.md)
 ### [Ejercicio 7: Suspensión de tareas y reactivación](ex7.md)
 ### [Ejercicio 8: Mailbox. Uso de Interrupciones](ex8.md)
 ### [Ejercicio 9: Colas de Mensajes. Uso de Ps2](ex9.md)
