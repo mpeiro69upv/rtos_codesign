@@ -21,7 +21,7 @@ title: "Sistemas Operativos en Tiempo Real - UCOSII - IntelFPGA"
 ### [Ejercicio 9: Colas de Mensajes. Uso de Ps2](ex9.md)
 ### [Ejercicio 10: Flags de eventos](ex10.md)
 ### [Ejercicio 11: Particiones de memoria con uC/OS-II](ex11.md)
-### [Entrega Final]
+### 
 
 ## 🙏 Teoría Recomendada
 
