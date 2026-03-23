@@ -15,7 +15,7 @@ Además, cuando el SW1 esté a 1 se recupera la tarea cuyo código se muestra en
 <div align="center">
 	<img src="img/Imagen23.png" alt="Tarea que suspende y reactiva desde los switches" width="500"/>
 	<br>
-	<em>Figura 23. Tarea que suspende y reactiva desde los switches.</em>
+	<em>Figura 22. Tarea que suspende y reactiva desde los switches.</em>
 </div>
 
 <br>
