@@ -20,6 +20,7 @@ OSSchedLock();
 // caso 2 bloques de memoria
 #ifndef UNBLOQUE
 	memmove(pixel_buffer,&PixelMem[i],512*240*2);
+// OSSchedUnlock();
 	i++;
 	if (i==2){
 		i=0;
