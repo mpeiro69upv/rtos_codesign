@@ -19,12 +19,14 @@
 void TaskPicture(void* pdata)
 {
 
+	INT8U err;
+
 	while(1){
 
 
-	printf("Hello from PictureFlash\n");
+	printf("Hello from Picture\n");
 
-	OSMutexPend(MutexFlash,0,&err);
+	OSMutexPend(MutexMemory,0,&err);
 
 		sprintf(filezipname, "/mnt/rozipfs/imagen%02d.bmp", filezip_number++);
 		fpzip = fopen (filezipname, "r");
@@ -34,7 +36,7 @@ void TaskPicture(void* pdata)
 			filezip_number=0;
 		} else {
 			printf ("Opened ZIP File %02d\n",filezip_number-1);
-//			fclose (fpzip);
+			fclose (fpzip);
 			OSSemPend(SemaphoreMemory,0,&err);
 			alt_ucosii_check_return_code(err);
 #ifndef UNBLOQUE
@@ -62,7 +64,7 @@ void TaskPicture(void* pdata)
 
 		}
 
-		OSMutexPost(MutexFlash);
+		OSMutexPost(MutexMemory);
 
 
     OSTimeDlyHMSM(0, 0, 1, 0);
@@ -73,112 +75,110 @@ void TaskPicture(void* pdata)
 //Subrutina que lee un archivo BMP de la Flash
 short int Read_BMP_ZipFile(char *file_name)
 {
-	unsigned short date, tmp;
-	unsigned short file_tipoB;
-	unsigned short file_tipoM;
-	unsigned short inicio_byte0, inicio_byte1, inicio_byte2, inicio_byte3;
-	int inicio_imagen = 0;
-	unsigned short anchura_byte0, anchura_byte1, anchura_byte2, anchura_byte3;
-	int anchura_imagen = 0;
-	unsigned short altura_byte0, altura_byte1, altura_byte2, altura_byte3;
-	int altura_imagen = 0;
-	unsigned short bitsxpixel, bitsxpixel_byte0, bitsxpixel_byte1;
-	int n=0;
-
-	FILE *fpzip;
-    char buffer[BUF_HEAD_SIZE];
-    char bufferpix[3];
-
-	fpzip = fopen (file_name, "r");
-	fread (buffer, BUF_HEAD_SIZE, 1, fpzip);
-
-    //Primero se lee la cabecera del archivo
-    while (1) //cabecera simple n<54. Si incluye la paleta de colores n<122
-    {
-    	tmp = buffer [n];
-    	date = tmp & 0x00ff;
-
-    	switch(n)
-    	{
-    		case 0 :
-    			file_tipoB = date;
-    			if (file_tipoB == 0x42) break;
-    			else {printf("Formato archivo incorrecto\n"); fclose (fpzip); return -3;}
-    		case 1 :
-    			file_tipoM = date;
-    			if (file_tipoM == 0x4d) break;
-    			else {printf("Formato archivo incorrecto\n"); fclose (fpzip); return -3;}
-       		case 10: inicio_byte0 = date; break;
-        	case 11: inicio_byte1 = date; break;
-        	case 12: inicio_byte2 = date; break;
-        	case 13:
-        		inicio_byte3 = date;
-        		inicio_imagen = ((inicio_byte3 << 24) | (inicio_byte2 << 16) | (inicio_byte1 << 8) | inicio_byte0);
-         		break;
-    		case 18: anchura_byte0 = date; break;
-    		case 19: anchura_byte1 = date; break;
-    		case 20: anchura_byte2 = date; break;
-    		case 21:
-    			anchura_byte3 = date;
-    			anchura_imagen = ((anchura_byte3 << 24) | (anchura_byte2 << 16) | (anchura_byte1 << 8) | anchura_byte0);
-     			break;
-    		case 22: altura_byte0 = date; break;
-    		case 23: altura_byte1 = date; break;
-    		case 24: altura_byte2 = date; break;
-    		case 25:
-    			altura_byte3 = date;
-    			altura_imagen = ((altura_byte3 << 24) | (altura_byte2 << 16) | (altura_byte1 << 8) | altura_byte0);
-     			break;
-    		case 28: bitsxpixel_byte0 = date; break;
-    		case 29:
-    			bitsxpixel_byte1 = date;
-    			bitsxpixel = ((bitsxpixel_byte1 << 8) | bitsxpixel_byte0);
-     			break;
-    	}
-    	n++;
-    	if (n == inicio_imagen) break;
-    }
-
-    printf("Nombre Archivo = %s\n", file_name);
-    printf("Anchura Imagen = %d\n", anchura_imagen);
-    printf("Altura  Imagen = %d\n", altura_imagen);
-    printf("Bits por pixel = %d\n", bitsxpixel);
-
-	int offset, row, col;
+	unsigned char bmp_header[54];
+	unsigned char pixel_bytes[2];
+	unsigned char row_padding[3];
+	unsigned int inicio_imagen;
+	unsigned int compresion;
+	int anchura_imagen;
+	int altura_imagen;
+	int altura_absoluta;
+	int top_down;
+	unsigned short bitsxpixel;
+	int bytes_por_fila;
+	int padding_por_fila;
+	int row, col, row_destino, offset;
 	unsigned short int pixel_color;
-	unsigned short int pixel_color_blue, pixel_color_green, pixel_color_red;
-	unsigned short int pixel_lower, pixel_higher;
+	FILE *fpzip;
 
-	for (row = (altura_imagen-1); row >= 0; row--)
+	fpzip = fopen(file_name, "rb");
+	if (fpzip == NULL) {
+		printf("Error al abrir archivo BMP\n");
+		return -1;
+	}
+
+	if (fread(bmp_header, 1, sizeof(bmp_header), fpzip) != sizeof(bmp_header)) {
+		printf("Error al leer cabecera BMP\n");
+		fclose(fpzip);
+		return -2;
+	}
+
+	if ((bmp_header[0] != 'B') || (bmp_header[1] != 'M')) {
+		printf("Formato archivo incorrecto\n");
+		fclose(fpzip);
+		return -3;
+	}
+
+	inicio_imagen = (unsigned int)bmp_header[10] |
+						((unsigned int)bmp_header[11] << 8) |
+						((unsigned int)bmp_header[12] << 16) |
+						((unsigned int)bmp_header[13] << 24);
+	anchura_imagen = (int)((unsigned int)bmp_header[18] |
+						((unsigned int)bmp_header[19] << 8) |
+						((unsigned int)bmp_header[20] << 16) |
+						((unsigned int)bmp_header[21] << 24));
+	altura_imagen = (int)((unsigned int)bmp_header[22] |
+					   ((unsigned int)bmp_header[23] << 8) |
+					   ((unsigned int)bmp_header[24] << 16) |
+					   ((unsigned int)bmp_header[25] << 24));
+	bitsxpixel = (unsigned short)((unsigned short)bmp_header[28] |
+						   ((unsigned short)bmp_header[29] << 8));
+	compresion = (unsigned int)bmp_header[30] |
+					 ((unsigned int)bmp_header[31] << 8) |
+					 ((unsigned int)bmp_header[32] << 16) |
+					 ((unsigned int)bmp_header[33] << 24);
+
+	if (bitsxpixel != 16) {
+		printf("Formato no compatible: se esperaba RGB565 (16 bpp)\n");
+		fclose(fpzip);
+		return -3;
+	}
+
+	if ((compresion != 0) && (compresion != 3)) {
+		printf("Compresion BMP no compatible para RGB565\n");
+		fclose(fpzip);
+		return -3;
+	}
+
+	if ((anchura_imagen <= 0) || (altura_imagen == 0)) {
+		printf("Dimensiones BMP incorrectas\n");
+		fclose(fpzip);
+		return -3;
+	}
+
+	top_down = (altura_imagen < 0);
+	altura_absoluta = top_down ? (-altura_imagen) : altura_imagen;
+
+	printf("Nombre Archivo = %s\n", file_name);
+	printf("Anchura Imagen = %d\n", anchura_imagen);
+	printf("Altura  Imagen = %d\n", altura_absoluta);
+	printf("Bits por pixel = %d\n", bitsxpixel);
+
+	bytes_por_fila = anchura_imagen * 2;
+	padding_por_fila = (4 - (bytes_por_fila & 0x3)) & 0x3;
+
+	if (fseek(fpzip, (long)inicio_imagen, SEEK_SET) != 0) {
+		printf("Error posicionando inicio de datos BMP\n");
+		fclose(fpzip);
+		return -2;
+	}
+
+	for (row = 0; row < altura_absoluta; row++)
 	{
-		col = 0;
-		while (col <= (anchura_imagen-1))
+		row_destino = top_down ? row : (altura_absoluta - 1 - row);
+		for (col = 0; col < anchura_imagen; col++)
 		{
-			switch (bitsxpixel)
-			{
-				case 24:
-					fread (bufferpix, 3, 1, fpzip);
-			    	date = bufferpix [0];
-					pixel_color_blue = date & 0x00f8;
-					date = bufferpix [1];
-					pixel_color_green = date & 0x00fc;
-					date = bufferpix [2];
-					pixel_color_red = date & 0x00f8;
-					pixel_color = ((pixel_color_red << 8) | (pixel_color_green << 3) | (pixel_color_blue >> 3));
-					//printf("red=%x, green=%x, blue=%x, color=%x\n", pixel_color_red, pixel_color_green, pixel_color_blue, pixel_color);
-					break;
-				case 16:
-					fread (bufferpix, 2, 1, fpzip);
-					date = bufferpix [0];
-					pixel_lower = date & 0x00ff;
-					date = bufferpix [1];
-					pixel_higher = date& 0x00ff;
-					pixel_color = ((pixel_higher << 8) | pixel_lower);
-					//printf("higher=%x, lower=%x, color=%x\n", pixel_higher, pixel_lower, pixel_color);
-					break;
-				default: printf("Formato de bits por pixel incorrecto\n");  fclose (fpzip); return -3;
+			if (fread(pixel_bytes, 1, 2, fpzip) != 2) {
+				printf("Error leyendo pixel BMP\n");
+				fclose(fpzip);
+				return -2;
 			}
-			offset = (row << 9) + col;
+
+			/* RGB565 en little-endian: byte bajo + byte alto */
+			pixel_color = (unsigned short int)(((unsigned short int)pixel_bytes[1] << 8) |
+										   (unsigned short int)pixel_bytes[0]);
+
+			offset = (row_destino << 9) + col;
 			// para 4 bloques
 #ifndef UNBLOQUE
 			PixelMem[filezip_number-1][offset]=pixel_color;
@@ -186,11 +186,18 @@ short int Read_BMP_ZipFile(char *file_name)
 #else
 			PixelMem[0][offset]=pixel_color;
 #endif
-			++col;
+		}
+
+		if (padding_por_fila > 0) {
+			if (fread(row_padding, 1, (size_t)padding_por_fila, fpzip) != (size_t)padding_por_fila) {
+				printf("Error leyendo padding de fila BMP\n");
+				fclose(fpzip);
+				return -2;
+			}
 		}
 	}
 
-	fclose (fpzip);
+	fclose(fpzip);
 
 	return 0;
 }
