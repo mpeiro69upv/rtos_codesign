@@ -14,6 +14,20 @@
 			"command": "git add .; git commit -m \"Forzar actualización ejercicios 7-10\"; git push origin v4",
 			"isBackground": false,
 			"group": "build"
+		},
+		{
+			"label": "Check Git Status",
+			"type": "shell",
+			"command": "git status",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Add Update File",
+			"type": "shell",
+			"command": "git add force_update.txt",
+			"isBackground": false,
+			"group": "build"
 		}
 	]
 }
