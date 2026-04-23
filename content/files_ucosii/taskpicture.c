@@ -34,6 +34,8 @@ void TaskPicture(void* pdata)
 		if (fpzip == NULL) {
 			printf ("Error: could not open ZIP File\n");
 			// filezip_number=0;
+			OSMutexPost(MutexMemory);
+			OSTaskDel(OS_PRIO_SELF);
 		} else {
 			printf ("Opened ZIP File %02d\n",filezip_number-1);
 			fclose (fpzip);
